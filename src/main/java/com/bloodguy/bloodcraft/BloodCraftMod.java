@@ -1,5 +1,7 @@
 package com.bloodguy.bloodcraft;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,7 +25,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BloodCraftMod
 {
     public static final String MODID = "Bl00DCraft";
-    public static final String VERSION = "1.0.1.0";
+    public static final String VERSION = "1.0.3.0";
+    public static final boolean DEV = false;
+    
+    public static ForgeEventHandler eventHandler = new ForgeEventHandler();
     
     public static CreativeTabs BloodTab = new CreativeTabsBl00DCraft("Bl00DCraft");
     
@@ -50,7 +55,6 @@ public class BloodCraftMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	//System.out.println("Bl00DCRaft " + VERSION + ">> est activé.");
     	MinecraftForge.EVENT_BUS.register(new Drop_Event());
     	    	
     	//###ITEM###
@@ -96,6 +100,8 @@ public class BloodCraftMod
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", "XC ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.steelStick});
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltSword), new Object[] {" X ", " X ", "BCB", 'X', BloodCraftMod.cobaltChunk, 'B', Items.gold_ingot, 'C', BloodCraftMod.steelStick});
     	GameRegistry.addSmelting(steelOre, new ItemStack(steelIngot, 1), 2.50F);
+    	
+    	FMLCommonHandler.instance().bus().register(BloodCraftMod.eventHandler);
     }
     
     @EventHandler

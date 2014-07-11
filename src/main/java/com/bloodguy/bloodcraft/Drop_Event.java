@@ -58,11 +58,4 @@ public class Drop_Event {
 			event.drops.add(new ItemStack(Blocks.glass, 1));
 		}
 	}
-	
-	@SubscribeEvent
-	public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
-		ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("Bl00DCRaft " + BloodCraftMod.VERSION + ">> est activé.", new Object[0]);
-		event.player.addChatMessage(chatcomponenttranslation);
-		System.out.println("Bl00DCRaft " + BloodCraftMod.VERSION + ">> est activé.");
-    }
 }
