@@ -1,0 +1,9 @@
+tile.Steel Ore.name=Steel Ore
+tile.Cobalt Ore.name=Cobalt Ore
+item.steelIngot.name=Steel Ingot
+item.steelStick.name=Steel Stick
+item.cobaltChunk.name=Cobalt Chunk
+item.cobaltPickaxe.name=Cobalt Pickaxe
+item.cobaltAxe.name=Cobalt Axe
+item.cobaltSword.name=Cobalt Great Sword
+item.dropHeart.name=Healing Heart

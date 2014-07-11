@@ -1,0 +1,9 @@
+tile.Steel Ore.name=Minerais d'acier
+tile.Cobalt Ore.name=Minerais de cobalt
+item.steelIngot.name=Lingot d'acier
+item.steelStick.name=Bâton d'acier
+item.cobaltChunk.name=Morceau de cobalt
+item.cobaltPickaxe.name=Pioche de cobalt
+item.cobaltAxe.name=Hache de cobalt
+item.cobaltSword.name=Grande épée de cobalt
+item.dropHeart.name=Coeur de guérison
