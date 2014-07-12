@@ -9,6 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +27,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BloodCraftMod
 {
     public static final String MODID = "Bl00DCraft";
-    public static final String VERSION = "1.0.3.0";
+    public static final String VERSION = "1.0.4.0";
     public static final boolean DEV = false;
     
     public static ForgeEventHandler eventHandler = new ForgeEventHandler();
@@ -46,6 +48,11 @@ public class BloodCraftMod
     public static Item cobaltHoe;
     public static Item cobaltSword;
     
+    public static Item cropCornSeeds;
+    public static Item cropCorn;
+    public static Item cropCookedCorn;
+    public static Block cropCornPlant;
+    
     public static Item.ToolMaterial CobaltMaterial = EnumHelper.addToolMaterial("ColbatMaterial", 3, 800, 8.0F, 4.0F, 10);
     
     
@@ -56,7 +63,11 @@ public class BloodCraftMod
     public void init(FMLInitializationEvent event)
     {
     	MinecraftForge.EVENT_BUS.register(new Drop_Event());
-    	    	
+    	//###CROPS###
+    	cropCornPlant = new BloodCrop().setBlockName("CornPlant");
+    	cropCorn = new Item().setUnlocalizedName("cropCorn").setTextureName("Bl00DCraft:cropCorn");
+    	cropCornSeeds = new ItemSeeds(cropCornPlant, Blocks.farmland).setUnlocalizedName("cornSeeds").setTextureName("Bl00DCraft:cornSeeds").setCreativeTab(CreativeTabs.tabFood);
+    	cropCookedCorn = new ItemFood(2, 0.5F, false).setUnlocalizedName("cropCookedCorn").setTextureName("Bl00DCraft:cropCookedCorn").setCreativeTab(CreativeTabs.tabFood);
     	//###ITEM###
     	dropHeart = new ItemDropHeart();
     	steelIngot = new ItemSteelIngot();
@@ -80,6 +91,11 @@ public class BloodCraftMod
     	.setCreativeTab(CreativeTabs.tabBlock)
     	.setHardness(5);
     	//###REGISTRATION##
+    		//Crops
+    	GameRegistry.registerItem(cropCornSeeds, "Corn Seeds");
+    	GameRegistry.registerItem(cropCorn, "Corn");
+    	GameRegistry.registerItem(cropCookedCorn, "Cooked Corn");
+    	GameRegistry.registerBlock(cropCornPlant, "Corn Plant");
     		//Item
     	GameRegistry.registerItem(dropHeart, "Life Heart");
         GameRegistry.registerItem(steelIngot, "Steel Ingot");
@@ -100,6 +116,7 @@ public class BloodCraftMod
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", "XC ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.steelStick});
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltSword), new Object[] {" X ", " X ", "BCB", 'X', BloodCraftMod.cobaltChunk, 'B', Items.gold_ingot, 'C', BloodCraftMod.steelStick});
     	GameRegistry.addSmelting(steelOre, new ItemStack(steelIngot, 1), 2.50F);
+    	GameRegistry.addSmelting(cropCorn, new ItemStack(cropCookedCorn, 1), 1.0F);
     	
     	FMLCommonHandler.instance().bus().register(BloodCraftMod.eventHandler);
     }
