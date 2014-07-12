@@ -27,12 +27,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BloodCraftMod
 {
     public static final String MODID = "Bl00DCraft";
-    public static final String VERSION = "1.0.4.0";
+    public static final String VERSION = "1.0.4.1";
     public static final boolean DEV = false;
     
     public static ForgeEventHandler eventHandler = new ForgeEventHandler();
-    
-    public static CreativeTabs BloodTab = new CreativeTabsBl00DCraft("Bl00DCraft");
     
     public static Block steelOre;
     public static Block cobaltOre;
