@@ -27,17 +27,17 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BloodCraftMod
 {
     public static final String MODID = "Bl00DCraft";
-    public static final String VERSION = "1.0.4.1";
+    public static final String VERSION = "1.0.4.2";
     public static final boolean DEV = false;
     
     public static ForgeEventHandler eventHandler = new ForgeEventHandler();
     
-    public static Block steelOre;
+    public static Block trilliumOre;
     public static Block cobaltOre;
     
     public static Item dropHeart;
-    public static Item steelIngot;
-    public static Item steelStick;
+    public static Item trilliumIngot;
+    public static Item trilliumStick;
     
     public static Item cobaltChunk;
     
@@ -68,8 +68,8 @@ public class BloodCraftMod
     	cropCookedCorn = new ItemFood(2, 0.5F, false).setUnlocalizedName("cropCookedCorn").setTextureName("Bl00DCraft:cropCookedCorn").setCreativeTab(CreativeTabs.tabFood);
     	//###ITEM###
     	dropHeart = new ItemDropHeart();
-    	steelIngot = new ItemSteelIngot();
-    	steelStick = new ItemSteelStick(); 
+    	trilliumIngot = new ItemTrilliumIngot();
+    	trilliumStick = new ItemTrilliumStick(); 
     	cobaltChunk = new ItemCobaltChunk();
     		//Cobalt Tools
     	cobaltPickaxe = new ItemCobaltPickaxe(CobaltMaterial);
@@ -77,9 +77,9 @@ public class BloodCraftMod
     	cobaltSword = new ItemCobaltSword(CobaltMaterial);
     	//###BLOCK###
     		//Steel Ore
-    	steelOre = new BlockSteelOre()
-    	.setBlockName("Steel Ore")
-    	.setBlockTextureName("Bl00DCraft:steelOre")
+    	trilliumOre = new BlockTrilliumOre()
+    	.setBlockName("Trillium Ore")
+    	.setBlockTextureName("Bl00DCraft:trilliumOre")
     	.setCreativeTab(CreativeTabs.tabBlock)
     	.setHardness(3);
     		//Cobalt Ore
@@ -96,24 +96,24 @@ public class BloodCraftMod
     	GameRegistry.registerBlock(cropCornPlant, "Corn Plant");
     		//Item
     	GameRegistry.registerItem(dropHeart, "Life Heart");
-        GameRegistry.registerItem(steelIngot, "Steel Ingot");
-        GameRegistry.registerItem(steelStick, "Steel Stick");
+        GameRegistry.registerItem(trilliumIngot, "Steel Ingot");
+        GameRegistry.registerItem(trilliumStick, "Steel Stick");
         GameRegistry.registerItem(cobaltChunk, "Cobalt Chunk");
         GameRegistry.registerItem(cobaltPickaxe, "Cobalt Pickaxe");
         GameRegistry.registerItem(cobaltAxe, "Cobalt Axe");
         GameRegistry.registerItem(cobaltSword, "Cobalt Sword");
     		//Block
-    	GameRegistry.registerBlock(steelOre, "Steel Ore");
+    	GameRegistry.registerBlock(trilliumOre, "Trillium Ore");
     	GameRegistry.registerBlock(cobaltOre, "Cobalt Ore");
     		//World Gen
     	GameRegistry.registerWorldGenerator(BlockWorldGen, 1);   	
     		//Recipes
-    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.steelStick), new Object[] {" X ", " X ", " X ", 'X', BloodCraftMod.steelIngot, 'C', Items.stick});
-    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltPickaxe), new Object[] {"XXX", " C ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.steelStick});
-    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", " CX", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.steelStick});
-    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", "XC ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.steelStick});
-    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltSword), new Object[] {" X ", " X ", "BCB", 'X', BloodCraftMod.cobaltChunk, 'B', Items.gold_ingot, 'C', BloodCraftMod.steelStick});
-    	GameRegistry.addSmelting(steelOre, new ItemStack(steelIngot, 1), 2.50F);
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.trilliumStick), new Object[] {" X ", " X ", " X ", 'X', BloodCraftMod.trilliumIngot, 'C', Items.stick});
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltPickaxe), new Object[] {"XXX", " C ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.trilliumStick});
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", " CX", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.trilliumStick});
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", "XC ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.trilliumStick});
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltSword), new Object[] {" X ", " X ", "BCB", 'X', BloodCraftMod.cobaltChunk, 'B', Items.gold_ingot, 'C', BloodCraftMod.trilliumStick});
+    	GameRegistry.addSmelting(trilliumOre, new ItemStack(trilliumIngot, 1), 2.50F);
     	GameRegistry.addSmelting(cropCorn, new ItemStack(cropCookedCorn, 1), 1.0F);
     	
     	FMLCommonHandler.instance().bus().register(BloodCraftMod.eventHandler);

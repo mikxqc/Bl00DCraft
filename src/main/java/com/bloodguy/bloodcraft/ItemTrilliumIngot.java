@@ -8,13 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemSteelIngot extends Item
+public class ItemTrilliumIngot extends Item
 {
-	public ItemSteelIngot()
+	public ItemTrilliumIngot()
 	{
 		super();
 	     setCreativeTab(CreativeTabs.tabMaterials);
-	     setUnlocalizedName("steelIngot");
-	     setTextureName("Bl00DCraft:steelIngot");
+	     setUnlocalizedName("trilliumIngot");
+	     setTextureName("Bl00DCraft:trilliumIngot");
 	}
 }

@@ -41,7 +41,7 @@ public class Drop_Event {
 	                {
 	    			 	event.entityLiving.dropItem(BloodCraftMod.dropHeart, 1);
 	                }
-	    		 if (rand < 0.15d)
+	    		 if (rand < 0.5d)
 	                {
 	    			 	event.entityLiving.dropItem(BloodCraftMod.cropCornSeeds, 1);
 	                }

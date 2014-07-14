@@ -1,7 +1,7 @@
-tile.Steel Ore.name=Steel Ore
+tile.Trillium Ore.name=Trillium Ore
 tile.Cobalt Ore.name=Cobalt Ore
-item.steelIngot.name=Steel Ingot
-item.steelStick.name=Steel Stick
+item.trilliumIngot.name=Trillium Ingot
+item.trilliumStick.name=Trillium Stick
 item.cobaltChunk.name=Cobalt Chunk
 item.cobaltPickaxe.name=Cobalt Pickaxe
 item.cobaltAxe.name=Cobalt Axe
@@ -9,4 +9,4 @@ item.cobaltSword.name=Cobalt Great Sword
 item.dropHeart.name=Healing Heart
 item.cropCorn.name=Corn
 item.cropCookedCorn.name=Cooked Corn
-item.cropCornSeeds.name=Corn Seeds
+item.cornSeeds.name=Corn Seeds

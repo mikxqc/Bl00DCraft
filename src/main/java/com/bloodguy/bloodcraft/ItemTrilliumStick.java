@@ -3,13 +3,13 @@ package com.bloodguy.bloodcraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class ItemSteelStick extends Item 
+public class ItemTrilliumStick extends Item 
 {
-	public ItemSteelStick()
+	public ItemTrilliumStick()
 	{
 		super();
 	     setCreativeTab(CreativeTabs.tabMaterials);
-	     setUnlocalizedName("steelStick");
-	     setTextureName("Bl00DCraft:steelStick");
+	     setUnlocalizedName("trilliumStick");
+	     setTextureName("Bl00DCraft:trilliumStick");
 	}
 }

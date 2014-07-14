@@ -42,7 +42,7 @@ public class BlockGenerator implements IWorldGenerator
 			int chunkY = random.nextInt(256);
 			int chunkZ = z + random.nextInt(16);
 			
-			(new WorldGenMinable(BloodCraftMod.steelOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+			(new WorldGenMinable(BloodCraftMod.trilliumOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 		//Generate Cobalt Ore
 		for (int i = 0; i < 10; i++)
