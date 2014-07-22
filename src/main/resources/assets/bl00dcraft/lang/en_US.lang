@@ -1,5 +1,9 @@
 tile.Trillium Ore.name=Trillium Ore
 tile.Cobalt Ore.name=Cobalt Ore
+tile.Desolated Ore.name=Desolated Ore
+tile.Desolated Grass.name=Desolated Grass
+tile.Desolated Dirt.name=Desolated Dirt
+item.Desolated Sword.name=Desolated Sword
 item.trilliumIngot.name=Trillium Ingot
 item.trilliumStick.name=Trillium Stick
 item.cobaltChunk.name=Cobalt Chunk
