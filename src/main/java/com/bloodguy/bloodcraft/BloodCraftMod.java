@@ -66,44 +66,43 @@ public class BloodCraftMod
     public static final String name = "Bl00DCraft";
     public static final boolean DEV = true;
     
-    public static CreativeTabs Bl00DCraft = new CreativeTabsBl00DCraft("Bl00DCtaft");
+    //Creative Tabs
+    public static CreativeTabs Bl00DCraft = new CreativeTabsBl00DCraft("Bl00DCtaft");  
     
-    public static BiomeGenBase BiomeDesolation;
-    
+    //Forge Event
     public static ForgeEventHandler eventHandler = new ForgeEventHandler();
     
+    //BiomeGen
     public static BiomeGenBase Desolation;
+    public static BiomeGenBase BiomeDesolation;
     
+    //Block
+    public static Block cropCornPlant;
     public static Block trilliumOre;
     public static Block cobaltOre;
     public static Block DesolatedOre;
     public static Block DesolatedDirt;
-    public static Block DesolatedGrass;
-    
-    public static Block TombStone;
-    public static Block TombStoneB;
-    
+    public static Block DesolatedGrass;  
     public static Block desolationLog;
     public static Block desolationLeaf;
-    
+    	//Model Block
+    public static Block TombStone;
+    public static Block TombStoneB;
+    //Item
     public static Item dropHeart;
     public static Item trilliumIngot;
-    public static Item trilliumStick;
-    
-    public static Item cobaltChunk;
-    
+    public static Item trilliumStick;    
+    public static Item cobaltChunk;    
     public static Item cobaltPickaxe;
     public static Item cobaltAxe;
     public static Item cobaltHoe;
-    public static Item cobaltSword;
-    
-    public static Item DesolatedSword;
-    
+    public static Item cobaltSword;   
+    public static Item DesolatedSword;   
     public static Item cropCornSeeds;
     public static Item cropCorn;
     public static Item cropCookedCorn;
-    public static Block cropCornPlant;
     
+    //Tool Material
     public static Item.ToolMaterial CobaltMaterial = EnumHelper.addToolMaterial("ColbatMaterial", 3, 800, 8.0F, 4.0F, 10);
     public static Item.ToolMaterial DesolatedMaterial = EnumHelper.addToolMaterial("DesolatedMaterial", 3, 2000, 10.0F, 10.0F, 10);
     
@@ -121,7 +120,9 @@ public class BloodCraftMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	//Drop Event Handler
     	MinecraftForge.EVENT_BUS.register(new Drop_Event());
+    	
     	//###BIOME###
     	BiomeDesolation = new BiomeGenDesolation(154).setColor(353825).setBiomeName("Desolation");
     	//###CROPS###
