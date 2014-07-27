@@ -109,8 +109,6 @@ public class BloodCraftMod
     @Instance(MODID)
     public static BloodCraftMod instance;
     
-    
-    
     public static BlockGenerator BlockWorldGen = new BlockGenerator();
     
     @SidedProxy(clientSide = "com.bloodguy.bloodcraft.proxy.ClientProxy", serverSide = "com.bloodguy.bloodcraft.proxy.CommonProxy")
@@ -125,6 +123,7 @@ public class BloodCraftMod
     	
     	//###BIOME###
     	BiomeDesolation = new BiomeGenDesolation(154).setColor(353825).setBiomeName("Desolation");
+    	Desolation = new BiomeGenDesolation(200).setColor(353825).setBiomeName("Desolation");
     	//###CROPS###
     	cropCornPlant = new BloodCrop().setBlockName("CornPlant");
     	cropCorn = new Item().setUnlocalizedName("cropCorn").setTextureName("Bl00DCraft:cropCorn");
@@ -142,49 +141,15 @@ public class BloodCraftMod
     		//Desolated Tools
     	DesolatedSword = new ItemDesolatedSword(DesolatedMaterial);
     	//###BLOCK###
-    	TombStone = new BlockTombStone(Material.rock)
-    	.setBlockName("Tomb Stone")
-    	.setBlockTextureName("TombStone")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(3);
-    	TombStoneB = new BlockTombStoneB(Material.rock)
-    	.setBlockName("Stone Cross")
-    	.setBlockTextureName("TombStoneB")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(3);
-    		//Steel Ore
-    	trilliumOre = new BlockTrilliumOre()
-    	.setBlockName("Trillium Ore")
-    	.setBlockTextureName("Bl00DCraft:trilliumOre")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(3);
-    		//Cobalt Ore
-    	cobaltOre = new BlockCobaltOre()
-    	.setBlockName("Cobalt Ore")
-    	.setBlockTextureName("Bl00DCraft:cobaltOre")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(5);
-    		//Desolated Dirt
-    	DesolatedDirt = new BlockDesolatedDirt(Material.ground)
-    	.setBlockName("Desolated Dirt")
-    	.setBlockTextureName("Bl00DCraft:DesolatedDirt")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(1);
-			//Desolated Grass
-    	DesolatedGrass = new BlockDesolatedGrass(Material.grass)
-    	.setStepSound(Block.soundTypeGrass)
-    	.setBlockName("Desolated Grass")
-    	.setBlockTextureName("Bl00DCraft:DesolatedGrass")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(0.4F);
-			//Desolated Ore
-    	DesolatedOre = new BlockDesolatedOre(Material.rock)
-    	.setStepSound(Block.soundTypeStone)
-    	.setBlockName("Desolated Ore")
-    	.setBlockTextureName("Bl00DCraft:DesolatedOre")
-    	.setCreativeTab(BloodCraftMod.Bl00DCraft)
-    	.setHardness(3.0F);
-    		//Trees
+    	TombStone = new BlockTombStone(Material.rock).setBlockName("Tomb Stone").setBlockTextureName("TombStone").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	TombStoneB = new BlockTombStoneB(Material.rock).setBlockName("Stone Cross").setBlockTextureName("TombStoneB").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	trilliumOre = new BlockTrilliumOre().setBlockName("Trillium Ore").setBlockTextureName("Bl00DCraft:trilliumOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	cobaltOre = new BlockCobaltOre().setBlockName("Cobalt Ore").setBlockTextureName("Bl00DCraft:cobaltOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(5);
+    	DesolatedDirt = new BlockDesolatedDirt(Material.ground).setBlockName("Desolated Dirt").setBlockTextureName("Bl00DCraft:DesolatedDirt").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(1);
+    	DesolatedGrass = new BlockDesolatedGrass(Material.grass).setStepSound(Block.soundTypeGrass).setBlockName("Desolated Grass").setBlockTextureName("Bl00DCraft:DesolatedGrass").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(0.4F);
+    	DesolatedOre = new BlockDesolatedOre(Material.rock).setStepSound(Block.soundTypeStone).setBlockName("Desolated Ore").setBlockTextureName("Bl00DCraft:DesolatedOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3.0F);
+    	//###TREE###
+    		//Desolation Biome
     	desolationLog = new DesolationLog().setBlockName("DesolationLog").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	desolationLeaf = new DesolationLeaves().setBlockName("DesolationLeaf").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	//###REGISTRATION##
@@ -230,9 +195,7 @@ public class BloodCraftMod
     	BloodProxy.registerRenderThings();
     	
     	registerEntity(EntityDesolationZombie.class, "EntityDesolationZombie");
-    	
-    	Desolation = new BiomeGenDesolation(200).setColor(353825).setBiomeName("Desolation");
-    	
+    	    	
     	BiomeDictionary.registerBiomeType(Desolation, Type.PLAINS);
     	BiomeManager.warmBiomes.add(new BiomeEntry(BloodCraftMod.Desolation, 10));
     	BiomeManager.addSpawnBiome(BloodCraftMod.Desolation);
