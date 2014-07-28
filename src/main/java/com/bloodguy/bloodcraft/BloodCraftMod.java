@@ -9,6 +9,7 @@ import com.bloodguy.bloodcraft.block.BlockCobaltOre;
 import com.bloodguy.bloodcraft.block.BlockDesolatedDirt;
 import com.bloodguy.bloodcraft.block.BlockDesolatedGrass;
 import com.bloodguy.bloodcraft.block.BlockDesolatedOre;
+import com.bloodguy.bloodcraft.block.BlockFireBoxOutSide;
 import com.bloodguy.bloodcraft.block.BlockGenerator;
 import com.bloodguy.bloodcraft.block.BlockTombStone;
 import com.bloodguy.bloodcraft.block.BlockTombStoneB;
@@ -45,6 +46,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -88,6 +90,7 @@ public class BloodCraftMod
     	//Model Block
     public static Block TombStone;
     public static Block TombStoneB;
+    public static Block FireBoxOutSide;
     //Item
     public static Item dropHeart;
     public static Item trilliumIngot;
@@ -130,7 +133,7 @@ public class BloodCraftMod
     	cropCornSeeds = new ItemSeeds(cropCornPlant, Blocks.farmland).setUnlocalizedName("cornSeeds").setTextureName("Bl00DCraft:cornSeeds").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	cropCookedCorn = new ItemFood(2, 0.5F, false).setUnlocalizedName("cropCookedCorn").setTextureName("Bl00DCraft:cropCookedCorn").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	//###ITEM###
-    	dropHeart = new ItemDropHeart();
+    	dropHeart = new ItemFood(2, 0.5F, false).setUnlocalizedName("dropHeart").setTextureName("Bl00DCraft:dropHeart").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	trilliumIngot = new ItemTrilliumIngot();
     	trilliumStick = new ItemTrilliumStick(); 
     	cobaltChunk = new ItemCobaltChunk();
@@ -143,6 +146,7 @@ public class BloodCraftMod
     	//###BLOCK###
     	TombStone = new BlockTombStone(Material.rock).setBlockName("Tomb Stone").setBlockTextureName("TombStone").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
     	TombStoneB = new BlockTombStoneB(Material.rock).setBlockName("Stone Cross").setBlockTextureName("TombStoneB").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	FireBoxOutSide = new BlockFireBoxOutSide(Material.rock).setBlockName("Outside Fire Box").setBlockTextureName("FireBoxOutSide").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
     	trilliumOre = new BlockTrilliumOre().setBlockName("Trillium Ore").setBlockTextureName("Bl00DCraft:trilliumOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
     	cobaltOre = new BlockCobaltOre().setBlockName("Cobalt Ore").setBlockTextureName("Bl00DCraft:cobaltOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(5);
     	DesolatedDirt = new BlockDesolatedDirt(Material.ground).setBlockName("Desolated Dirt").setBlockTextureName("Bl00DCraft:DesolatedDirt").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(1);
@@ -171,10 +175,11 @@ public class BloodCraftMod
         GameRegistry.registerItem(cobaltPickaxe, "Cobalt Pickaxe");
         GameRegistry.registerItem(cobaltAxe, "Cobalt Axe");
         GameRegistry.registerItem(cobaltSword, "Cobalt Sword");
-        GameRegistry.registerItem(DesolatedSword, "Desolated Sword");
+        GameRegistry.registerItem(DesolatedSword, "Desolated Sword");        
     		//Block
         GameRegistry.registerBlock(TombStone, "Tomb Stone");
         GameRegistry.registerBlock(TombStoneB, "Stone Cross");
+        GameRegistry.registerBlock(FireBoxOutSide, "Outside Fire Box");
     	GameRegistry.registerBlock(cropCornPlant, "Corn Plant");
     	GameRegistry.registerBlock(trilliumOre, "Trillium Ore");
     	GameRegistry.registerBlock(cobaltOre, "Cobalt Ore");
@@ -195,10 +200,11 @@ public class BloodCraftMod
     	BloodProxy.registerRenderThings();
     	
     	registerEntity(EntityDesolationZombie.class, "EntityDesolationZombie");
-    	    	
-    	BiomeDictionary.registerBiomeType(Desolation, Type.PLAINS);
-    	BiomeManager.warmBiomes.add(new BiomeEntry(BloodCraftMod.Desolation, 10));
-    	BiomeManager.addSpawnBiome(BloodCraftMod.Desolation);
+    	 
+    	//Used for later version.
+    	//BiomeDictionary.registerBiomeType(Desolation, Type.PLAINS);
+    	//BiomeManager.warmBiomes.add(new BiomeEntry(BloodCraftMod.Desolation, 10));
+    	//BiomeManager.addSpawnBiome(BloodCraftMod.Desolation);
     	
     	FMLCommonHandler.instance().bus().register(BloodCraftMod.eventHandler);
     }

@@ -5,6 +5,9 @@ import com.bloodguy.bloodcraft.BloodCraftMod;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 
 public class ItemCobaltPickaxe extends ItemPickaxe {
 
@@ -13,6 +16,12 @@ public class ItemCobaltPickaxe extends ItemPickaxe {
 		setCreativeTab(BloodCraftMod.Bl00DCraft);
 	     setUnlocalizedName("cobaltPickaxe");
 	     setTextureName("Bl00DCraft:cobaltPickaxe");
+	}
+	
+	@Override
+	public String getItemStackDisplayName(ItemStack par1ItemStack) {
+
+		return EnumChatFormatting.BLUE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".name");
 	}
 
 }

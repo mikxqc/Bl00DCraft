@@ -20,10 +20,8 @@ public class ItemDropHeart extends Item {
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world,
-	   EntityPlayer player) {
-	 
-	  //ChatComponentText text = new ChatComponentText("derp");
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
+		
 	  if(!world.isRemote){
 	  player.heal(1.0F);
 	  --itemstack.stackSize;

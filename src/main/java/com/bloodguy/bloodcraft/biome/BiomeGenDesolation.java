@@ -3,6 +3,7 @@ package com.bloodguy.bloodcraft.biome;
 import java.util.Random;
 
 import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.biome.features.DeadTreeGen;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCaveSpider;
@@ -17,9 +18,13 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 
 public class BiomeGenDesolation extends BiomeGenBase {
 
+	private WorldGenTrees DesolationTreeGen;
+	
 	public BiomeGenDesolation(int par1) {
 		super(par1);
 		topBlock = BloodCraftMod.DesolatedGrass;
@@ -32,13 +37,14 @@ public class BiomeGenDesolation extends BiomeGenBase {
 		spawnableMonsterList.add(new SpawnListEntry(EntityZombie.class, 5, 1, 5));
 		spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 5, 1, 5));
 		spawnableMonsterList.add(new SpawnListEntry(EntityCaveSpider.class, 5, 1, 5));
-		theBiomeDecorator.treesPerChunk = -1;
 		theBiomeDecorator.flowersPerChunk= -1;		
 		theBiomeDecorator.deadBushPerChunk = 35;
 		enableRain = false;
 		rootHeight = 0.1F;
 		heightVariation = 0.1F;
 		waterColorMultiplier = 23;
+		theBiomeDecorator.treesPerChunk = 10;
+		DesolationTreeGen = new DeadTreeGen(false);
 	}
 	
 	@Override
@@ -62,6 +68,25 @@ public class BiomeGenDesolation extends BiomeGenBase {
 				par1World.setBlock(var7, var8, var9, BloodCraftMod.DesolatedOre);
 			}
 		}
+		
+		for (var6 = 0; var6 < var5; ++var6)
+		{
+			var7 = par3 + par2Random.nextInt(16);
+			var8 = par2Random.nextInt(28) + 4;
+			int var9 = par4 + par2Random.nextInt(16);
+			Block var10 = par1World.getBlock(var7, var8, var9);
+
+			if (var10 == BloodCraftMod.DesolatedGrass)
+			{
+				par1World.setBlock(var7, var8, var9, BloodCraftMod.TombStone);
+			}
+		}
+	}
+	
+	@Override
+	public WorldGenAbstractTree func_150567_a(Random par1Random)
+	{
+		return par1Random.nextInt(5) == 0 ? worldGeneratorTrees : par1Random.nextInt(10) == 0 ? DesolationTreeGen : worldGeneratorTrees;
 	}
 	
 	public int getSkyColorByTemp(float f)

@@ -4,6 +4,9 @@ import com.bloodguy.bloodcraft.BloodCraftMod;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 
 public class ItemCobaltChunk extends Item 
 {
@@ -13,5 +16,11 @@ public class ItemCobaltChunk extends Item
 	     setCreativeTab(BloodCraftMod.Bl00DCraft);
 	     setUnlocalizedName("cobaltChunk");
 	     setTextureName("Bl00DCraft:cobaltChunk");
+	}
+	
+	@Override
+	public String getItemStackDisplayName(ItemStack par1ItemStack) {
+
+		return EnumChatFormatting.BLUE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".name");
 	}
 }

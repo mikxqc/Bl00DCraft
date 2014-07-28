@@ -106,10 +106,9 @@ public class EntityDesolationZombie extends EntityMob{
     
     public void onLivingUpdate()
     {
-    	//System.out.println(this.worldObj.getBlock(this.serverPosX & 15, this.serverPosY & 15, this.serverPosZ & 15));
-    	Chunk var26 = this.worldObj.getChunkFromBlockCoords(this.serverPosX & 15, this.serverPosZ);
-    	//System.out.println(var26.getBiomeGenForWorldCoords(this.serverPosX & 15, this.serverPosZ & 15, this.worldObj.getWorldChunkManager()).topBlock);
-        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild() && !this.worldObj.getBiomeGenForCoords(this.serverPosX, this.serverPosZ).biomeName.equals("Desolation"))
+    	Block block = worldObj.getBlock(this.serverPosX, this.serverPosY - 320, this.serverPosZ);
+    	System.err.print(worldObj.getBlock(this.serverPosX, this.serverPosY - 65284, this.serverPosZ));
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild() && block != BloodCraftMod.DesolatedGrass)
         {
             float f = this.getBrightness(1.0F);
 
