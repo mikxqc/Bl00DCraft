@@ -9,7 +9,8 @@ import com.bloodguy.bloodcraft.block.BlockCobaltOre;
 import com.bloodguy.bloodcraft.block.BlockDesolatedDirt;
 import com.bloodguy.bloodcraft.block.BlockDesolatedGrass;
 import com.bloodguy.bloodcraft.block.BlockDesolatedOre;
-import com.bloodguy.bloodcraft.block.BlockFireBoxOutSide;
+import com.bloodguy.bloodcraft.block.BlockFireBoxOutSide_OFF;
+import com.bloodguy.bloodcraft.block.BlockFireBoxOutSide_ON;
 import com.bloodguy.bloodcraft.block.BlockGenerator;
 import com.bloodguy.bloodcraft.block.BlockTombStone;
 import com.bloodguy.bloodcraft.block.BlockTombStoneB;
@@ -64,9 +65,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BloodCraftMod
 {
     public static final String MODID = "Bl00DCraft";
-    public static final String VERSION = "1.1.0.0";
+    public static final String VERSION = "1.0.5.0";
     public static final String name = "Bl00DCraft";
-    public static final boolean DEV = true;
+    public static final boolean DEV = false;
     
     //Creative Tabs
     public static CreativeTabs Bl00DCraft = new CreativeTabsBl00DCraft("Bl00DCtaft");  
@@ -90,7 +91,8 @@ public class BloodCraftMod
     	//Model Block
     public static Block TombStone;
     public static Block TombStoneB;
-    public static Block FireBoxOutSide;
+    public static Block FireBoxOutSide_OFF;
+    public static Block FireBoxOutSide_ON;
     //Item
     public static Item dropHeart;
     public static Item trilliumIngot;
@@ -133,7 +135,7 @@ public class BloodCraftMod
     	cropCornSeeds = new ItemSeeds(cropCornPlant, Blocks.farmland).setUnlocalizedName("cornSeeds").setTextureName("Bl00DCraft:cornSeeds").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	cropCookedCorn = new ItemFood(2, 0.5F, false).setUnlocalizedName("cropCookedCorn").setTextureName("Bl00DCraft:cropCookedCorn").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	//###ITEM###
-    	dropHeart = new ItemFood(2, 0.5F, false).setUnlocalizedName("dropHeart").setTextureName("Bl00DCraft:dropHeart").setCreativeTab(BloodCraftMod.Bl00DCraft);
+    	dropHeart = new ItemFood(4, 1F, false).setUnlocalizedName("dropHeart").setTextureName("Bl00DCraft:dropHeart").setCreativeTab(BloodCraftMod.Bl00DCraft);
     	trilliumIngot = new ItemTrilliumIngot();
     	trilliumStick = new ItemTrilliumStick(); 
     	cobaltChunk = new ItemCobaltChunk();
@@ -146,7 +148,8 @@ public class BloodCraftMod
     	//###BLOCK###
     	TombStone = new BlockTombStone(Material.rock).setBlockName("Tomb Stone").setBlockTextureName("TombStone").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
     	TombStoneB = new BlockTombStoneB(Material.rock).setBlockName("Stone Cross").setBlockTextureName("TombStoneB").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
-    	FireBoxOutSide = new BlockFireBoxOutSide(Material.rock).setBlockName("Outside Fire Box").setBlockTextureName("FireBoxOutSide").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	FireBoxOutSide_OFF = new BlockFireBoxOutSide_OFF(Material.rock).setBlockName("Outside Fire Box_OFF").setBlockTextureName("Bl00DCraft:FireBoxOutSide").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
+    	FireBoxOutSide_ON = new BlockFireBoxOutSide_ON(Material.rock).setBlockName("Outside Fire Box_ON").setBlockTextureName("Bl00DCraft:FireBoxOutSide").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3).setLightLevel(1F);
     	trilliumOre = new BlockTrilliumOre().setBlockName("Trillium Ore").setBlockTextureName("Bl00DCraft:trilliumOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(3);
     	cobaltOre = new BlockCobaltOre().setBlockName("Cobalt Ore").setBlockTextureName("Bl00DCraft:cobaltOre").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(5);
     	DesolatedDirt = new BlockDesolatedDirt(Material.ground).setBlockName("Desolated Dirt").setBlockTextureName("Bl00DCraft:DesolatedDirt").setCreativeTab(BloodCraftMod.Bl00DCraft).setHardness(1);
@@ -179,7 +182,8 @@ public class BloodCraftMod
     		//Block
         GameRegistry.registerBlock(TombStone, "Tomb Stone");
         GameRegistry.registerBlock(TombStoneB, "Stone Cross");
-        GameRegistry.registerBlock(FireBoxOutSide, "Outside Fire Box");
+        GameRegistry.registerBlock(FireBoxOutSide_OFF, "Outside Fire Box_Off");
+        GameRegistry.registerBlock(FireBoxOutSide_ON, "Outside Fire Box_On");
     	GameRegistry.registerBlock(cropCornPlant, "Corn Plant");
     	GameRegistry.registerBlock(trilliumOre, "Trillium Ore");
     	GameRegistry.registerBlock(cobaltOre, "Cobalt Ore");
@@ -194,6 +198,7 @@ public class BloodCraftMod
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", " CX", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.trilliumStick});
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltAxe), new Object[] {" XX", "XC ", " C ", 'X', BloodCraftMod.cobaltChunk, 'C', BloodCraftMod.trilliumStick});
     	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.cobaltSword), new Object[] {" X ", " X ", "BCB", 'X', BloodCraftMod.cobaltChunk, 'B', Items.gold_ingot, 'C', BloodCraftMod.trilliumStick});
+    	GameRegistry.addShapedRecipe(new ItemStack(BloodCraftMod.FireBoxOutSide_OFF), new Object[] {"ABA", "BCB", "ABA", 'A', Blocks.cobblestone, 'B', Blocks.obsidian, 'C', Blocks.netherrack});
     	GameRegistry.addSmelting(trilliumOre, new ItemStack(trilliumIngot, 1), 2.50F);
     	GameRegistry.addSmelting(cropCorn, new ItemStack(cropCookedCorn, 1), 1.0F);
     		//Renderers
