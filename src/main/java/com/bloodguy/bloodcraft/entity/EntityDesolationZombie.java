@@ -1,10 +1,12 @@
-package com.bloodguy.bloodcraft;
+package com.bloodguy.bloodcraft.entity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Calendar;
 import java.util.UUID;
+
+import com.bloodguy.bloodcraft.BloodCraftMod;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -64,6 +66,7 @@ public class EntityDesolationZombie extends EntityMob{
     private float field_146073_bw;
     private static final String __OBFID = "CL_00001702";
     private Minecraft mc;
+    private static World par1World;
 	
 	public EntityDesolationZombie(World par1World) {
 		super(par1World);
@@ -106,8 +109,7 @@ public class EntityDesolationZombie extends EntityMob{
     
     public void onLivingUpdate()
     {
-    	Block block = worldObj.getBlock(this.serverPosX, this.serverPosY - 320, this.serverPosZ);
-    	System.err.print(worldObj.getBlock(this.serverPosX, this.serverPosY - 65284, this.serverPosZ));
+    	Block block = worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY) - 1, MathHelper.floor_double(this.posZ));
         if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild() && block != BloodCraftMod.DesolatedGrass)
         {
             float f = this.getBrightness(1.0F);

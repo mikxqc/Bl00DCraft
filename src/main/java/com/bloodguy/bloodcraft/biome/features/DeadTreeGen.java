@@ -123,22 +123,22 @@ public class DeadTreeGen extends WorldGenTrees {
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i - 1, j + k2, k))
 			{
-				setBlockAndNotifyAdequately(world, i - 1, j + k2, k, Blocks.dirt, 8);
+				setBlockAndNotifyAdequately(world, i - 1, j + k2, k, BloodCraftMod.DesolatedDirt, 8);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i + 1, j + k2, k))
 			{
-				setBlockAndNotifyAdequately(world, i + 1, j + k2, k, Blocks.dirt, 2);
+				setBlockAndNotifyAdequately(world, i + 1, j + k2, k, BloodCraftMod.DesolatedDirt, 2);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k - 1))
 			{
-				setBlockAndNotifyAdequately(world, i, j + k2, k - 1, Blocks.dirt, 1);
+				setBlockAndNotifyAdequately(world, i, j + k2, k - 1, BloodCraftMod.DesolatedDirt, 1);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k + 1))
 			{
-				setBlockAndNotifyAdequately(world, i, j + k2, k + 1, Blocks.dirt, 4);
+				setBlockAndNotifyAdequately(world, i, j + k2, k + 1, BloodCraftMod.DesolatedDirt, 4);
 			}
 		}
 
@@ -187,11 +187,11 @@ public class DeadTreeGen extends WorldGenTrees {
 
 	private void func_48198_a(World world, int i, int j, int k, int l)
 	{
-		setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
+		setBlockAndNotifyAdequately(world, i, j, k, BloodCraftMod.DesolatedDirt, l);
 
 		for (int i1 = 4; world.getBlockMetadata(i, --j, k) == 0 && i1 > 0; i1--)
 		{
-			setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
+			setBlockAndNotifyAdequately(world, i, j, k, BloodCraftMod.DesolatedDirt, l);
 		}
 	}
 

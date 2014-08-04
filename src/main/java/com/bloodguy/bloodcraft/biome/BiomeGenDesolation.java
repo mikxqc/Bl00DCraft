@@ -4,6 +4,9 @@ import java.util.Random;
 
 import com.bloodguy.bloodcraft.BloodCraftMod;
 import com.bloodguy.bloodcraft.biome.features.DeadTreeGen;
+import com.bloodguy.bloodcraft.biome.features.DesolationStructure;
+import com.bloodguy.bloodcraft.entity.EntityDesolationSkeleton;
+import com.bloodguy.bloodcraft.entity.EntityDesolationZombie;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCaveSpider;
@@ -19,7 +22,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenTrees;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenDesolation extends BiomeGenBase {
 
@@ -34,14 +39,13 @@ public class BiomeGenDesolation extends BiomeGenBase {
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableMonsterList.add(new SpawnListEntry(EntityZombie.class, 5, 1, 5));
-		spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 5, 1, 5));
-		spawnableMonsterList.add(new SpawnListEntry(EntityCaveSpider.class, 5, 1, 5));
+		spawnableMonsterList.add(new SpawnListEntry(EntityDesolationZombie.class, 5, 1, 5));
+		spawnableMonsterList.add(new SpawnListEntry(EntityDesolationSkeleton.class, 5, 1, 5));
 		theBiomeDecorator.flowersPerChunk= -1;		
 		theBiomeDecorator.deadBushPerChunk = 35;
 		enableRain = false;
 		rootHeight = 0.1F;
-		heightVariation = 0.1F;
+		heightVariation = 0.0F;
 		waterColorMultiplier = 23;
 		theBiomeDecorator.treesPerChunk = 10;
 		DesolationTreeGen = new DeadTreeGen(false);
@@ -69,19 +73,61 @@ public class BiomeGenDesolation extends BiomeGenBase {
 			}
 		}
 		
-		for (var6 = 0; var6 < var5; ++var6)
+		
+		for(int maxTS = 0; maxTS < 3; maxTS++)
 		{
-			var7 = par3 + par2Random.nextInt(16);
-			var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			Block var10 = par1World.getBlock(var7, var8, var9);
-
-			if (var10 == BloodCraftMod.DesolatedGrass)
-			{
-				par1World.setBlock(var7, var8, var9, BloodCraftMod.TombStone);
+			int tsL = par2Random.nextInt(100);
+			if (tsL <= 8){
+				for(int curY = 0; curY < 256; curY++)
+				{
+					int tsX = par3 + par2Random.nextInt(16);
+					int tsZ = par4 + par2Random.nextInt(16);
+					if (par1World.getBlock(tsX, curY, tsZ) == BloodCraftMod.DesolatedGrass)
+					{
+						par1World.setBlock(tsX, curY + 1, tsZ, BloodCraftMod.TombStone);
+					}
+				}
 			}
 		}
-	}
+		
+		for(int maxTSb = 0; maxTSb < 3; maxTSb++)
+		{
+			int tsLb = par2Random.nextInt(100);
+			if (tsLb <= 5){
+				for(int curYb = 0; curYb < 256; curYb++)
+				{
+					int tsXb = par3 + par2Random.nextInt(16);
+					int tsZb = par4 + par2Random.nextInt(16);
+					if (par1World.getBlock(tsXb, curYb, tsZb) == BloodCraftMod.DesolatedGrass)
+					{
+						par1World.setBlock(tsXb, curYb + 1, tsZb, BloodCraftMod.TombStoneB);
+					}
+				}
+			}
+		}
+		
+		for (int internalMax = 0; internalMax < par2Random.nextInt(3); internalMax++)
+		{
+			for(int maxTSb = 0; maxTSb < 3; maxTSb++)
+			{
+				int tsLb = par2Random.nextInt(1000);
+				if (tsLb <= 2){
+					for(int y = 0; y < 256; y++)
+					{
+						int x = par3 + par2Random.nextInt(16);
+						int z = par4 + par2Random.nextInt(16);
+						if (par1World.getBlock(x, y, z) == BloodCraftMod.DesolatedGrass && par1World.getBlock(x, y - 6, z) != Blocks.air)
+						{
+							DesolationStructure.GenerateCrypt(par1World, x, y, z);
+						}
+					}
+				}
+			}
+		}
+		
+		}
+	
+	
 	
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random par1Random)
@@ -113,5 +159,5 @@ public class BiomeGenDesolation extends BiomeGenBase {
         f5 *= f2 * 0.91F + 0.09F;
         return Vec3.createVectorHelper(f3, f4, f5);
     }
-
+	
 }

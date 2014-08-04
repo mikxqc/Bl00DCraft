@@ -3,6 +3,7 @@ package com.bloodguy.bloodcraft.biome.features;
 import java.util.List;
 
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -75,6 +76,7 @@ public class DesolationLeaves extends BlockLeaves{
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
+		setGraphicsLevel(Minecraft.getMinecraft().gameSettings.fancyGraphics);
 		return (meta & 3) == 1 ? this.field_150129_M[this.field_150127_b][1] : this.field_150129_M[this.field_150127_b][0];
 	}
 

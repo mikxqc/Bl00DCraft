@@ -59,7 +59,7 @@ public class BlockDesolatedGrass extends Block {
 		{
 			if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && par1World.getBlockLightOpacity(par2, par3 + 1, par4) > 2)
 			{
-				par1World.setBlock(par2, par3, par4, Blocks.dirt);
+				par1World.setBlock(par2, par3, par4, BloodCraftMod.DesolatedDirt);
 			}
 			else if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
 			{
