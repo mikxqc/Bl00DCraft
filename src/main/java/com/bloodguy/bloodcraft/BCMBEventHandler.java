@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 import com.bloodguy.bloodcraft.ForgeEventHandler;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -14,10 +14,10 @@ import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 public class BCMBEventHandler extends ForgeEventHandler {
 	@SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event){
-    	String versionString = BloodCraftMod.VERSION;
+    	String versionString = Main.VERSION;
     	String[] versionStringSplit = versionString.split(Pattern.quote("."));
     	
-    	if (BloodCraftMod.DEV == true)
+    	if (Main.DEV == true)
     	{
         ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
         		EnumChatFormatting.RED + "Bl00DCraft - Biome Module " +

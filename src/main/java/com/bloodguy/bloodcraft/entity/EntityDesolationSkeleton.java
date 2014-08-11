@@ -2,7 +2,7 @@ package com.bloodguy.bloodcraft.entity;
 
 import java.util.Calendar;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -145,7 +145,7 @@ public class EntityDesolationSkeleton extends EntityMob implements IRangedAttack
     public void onLivingUpdate()
     {
     	Block block = worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY) - 1, MathHelper.floor_double(this.posZ));
-        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && block != BloodCraftMod.DesolatedGrass)
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && block != Main.DesolatedGrass)
         {
             float f = this.getBrightness(1.0F);
 

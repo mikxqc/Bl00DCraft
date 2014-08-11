@@ -1,5 +1,7 @@
 package com.bloodguy.bloodcraft.block;
 
+import java.util.Random;
+
 import com.bloodguy.bloodcraft.tileentity.TileEntityTombStone;
 
 import net.minecraft.block.Block;
@@ -35,5 +37,10 @@ public class BlockTombStone extends BlockContainer {
 	{
 		return new TileEntityTombStone();
 	}
+	
+    public int quantityDropped(Random p_149745_1_)
+    {
+        return 0;
+    }
 
 }

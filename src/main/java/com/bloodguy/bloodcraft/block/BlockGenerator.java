@@ -2,7 +2,7 @@ package com.bloodguy.bloodcraft.block;
 
 import java.util.Random;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -44,7 +44,7 @@ public class BlockGenerator implements IWorldGenerator
 			int chunkY = random.nextInt(256);
 			int chunkZ = z + random.nextInt(16);
 			
-			(new WorldGenMinable(BloodCraftMod.trilliumOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+			(new WorldGenMinable(Main.trilliumOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 		//Generate Cobalt Ore
 		for (int i = 0; i < 10; i++)
@@ -53,7 +53,7 @@ public class BlockGenerator implements IWorldGenerator
 			int chunkY = random.nextInt(256);
 			int chunkZ = z + random.nextInt(16);
 			
-			(new WorldGenMinable(BloodCraftMod.cobaltOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
+			(new WorldGenMinable(Main.cobaltOre, 10)).generate(world, random, chunkX, chunkY, chunkZ);
 		}
 	}
 

@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Calendar;
 import java.util.UUID;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -71,6 +71,7 @@ public class EntityDesolationZombie extends EntityMob{
 	public EntityDesolationZombie(World par1World) {
 		super(par1World);
 		this.getNavigator().setBreakDoors(true);
+		this.getNavigator().setEnterDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
         this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, true));
@@ -110,7 +111,7 @@ public class EntityDesolationZombie extends EntityMob{
     public void onLivingUpdate()
     {
     	Block block = worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY) - 1, MathHelper.floor_double(this.posZ));
-        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild() && block != BloodCraftMod.DesolatedGrass)
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild() && block != Main.DesolatedGrass)
         {
             float f = this.getBrightness(1.0F);
 
@@ -144,5 +145,49 @@ public class EntityDesolationZombie extends EntityMob{
 
         super.onLivingUpdate();
     }
+    
+    /**
+     * Returns the sound this mob makes while it's alive.
+     */
+    protected String getLivingSound()
+    {
+        return "mob.zombie.say";
+    }
 
+    /**
+     * Returns the sound this mob makes when it is hurt.
+     */
+    protected String getHurtSound()
+    {
+        return "mob.zombie.hurt";
+    }
+
+    /**
+     * Returns the sound this mob makes on death.
+     */
+    protected String getDeathSound()
+    {
+        return "mob.zombie.death";
+    }
+
+    protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
+    {
+        this.playSound("mob.zombie.step", 0.15F, 1.0F);
+    }
+
+    protected void dropRareDrop(int par1)
+    {
+        switch (this.rand.nextInt(3))
+        {
+            case 0:
+                this.dropItem(Items.iron_ingot, 1);
+                break;
+            case 1:
+                this.dropItem(Items.carrot, 1);
+                break;
+            case 2:
+                this.dropItem(Items.potato, 1);
+        }
+    }
+    
 }

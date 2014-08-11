@@ -11,10 +11,10 @@ public class ForgeEventHandler {
   
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event){
-    	String versionString = BloodCraftMod.VERSION;
+    	String versionString = Main.VERSION;
     	String[] versionStringSplit = versionString.split(Pattern.quote("."));
     	
-    	if (BloodCraftMod.DEV == true)
+    	if (Main.DEV == true)
     	{
         ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
         		EnumChatFormatting.RED + "Bl00DCraft " +

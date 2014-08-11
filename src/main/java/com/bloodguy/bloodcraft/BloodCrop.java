@@ -45,11 +45,11 @@ public class BloodCrop extends BlockCrops {
 	
 	protected Item func_149866_i()
 	{
-		return BloodCraftMod.cropCornSeeds;
+		return Main.cropCornSeeds;
 	}
 	
 	protected Item func_149865_P()
 	{
-		return BloodCraftMod.cropCorn;
+		return Main.cropCorn;
 	}
 }

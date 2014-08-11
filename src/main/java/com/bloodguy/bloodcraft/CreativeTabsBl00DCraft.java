@@ -16,7 +16,7 @@ public class CreativeTabsBl00DCraft extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
-		return Item.getItemFromBlock(Blocks.dirt);
+		return Item.getItemFromBlock(Main.DesolatedOre);
 	}
 
 }

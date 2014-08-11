@@ -9,18 +9,18 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 
-public class DeadTreeGen extends WorldGenTrees {
+public class DesolatedTreeGen extends WorldGenTrees {
 
 	private final int field_48202_a;
 	private final boolean field_48200_b;
 	private final int field_48201_c;
 	private final int field_48199_d;
 	
-	public DeadTreeGen(boolean flag) {
+	public DesolatedTreeGen(boolean flag) {
 		this(flag, 4, 0, 0, false);
 	}
 	
-	public DeadTreeGen(boolean flag, int i, int j, int k, boolean flag1) {
+	public DesolatedTreeGen(boolean flag, int i, int j, int k, boolean flag1) {
 		super(flag);
 		field_48202_a = i;
 		field_48201_c = j;
@@ -80,7 +80,7 @@ public class DeadTreeGen extends WorldGenTrees {
 		if (j1 != Blocks.dirt && j1 != Main.DesolatedDirt && j1 != Blocks.grass && j1 != Main.DesolatedGrass || j >= 256 - l - 1)
 			return false;
 
-		setBlockAndNotifyAdequately(world, i, j - 1, k, Main.desolationLog, 0);
+		setBlockAndNotifyAdequately(world, i, j - 1, k, Main.desolationLog, l);
 		byte byte1 = 3;
 		int l1 = 0;
 
@@ -101,7 +101,7 @@ public class DeadTreeGen extends WorldGenTrees {
 					{
 						Random rand=new Random(); 
 						int x=rand.nextInt(1); 
-						setBlockAndNotifyAdequately(world, k4, j2, k5, Main.desolationLeaf, 0);
+						setBlockAndNotifyAdequately(world, k4, j2, k5, Main.desolationLeaf, 1);
 					}
 				}
 			}
@@ -116,7 +116,7 @@ public class DeadTreeGen extends WorldGenTrees {
 				continue;
 			}
 
-			setBlockAndNotifyAdequately(world, i, j + k2, k, Main.desolationLog, 0);
+			setBlockAndNotifyAdequately(world, i, j + k2, k, Main.desolationLog, 1);
 
 			if (!field_48200_b || k2 <= 0)
 			{

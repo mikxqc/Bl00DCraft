@@ -2,7 +2,7 @@ package com.bloodguy.bloodcraft.block;
 
 import java.util.Random;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -59,7 +59,7 @@ public class BlockDesolatedGrass extends Block {
 		{
 			if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && par1World.getBlockLightOpacity(par2, par3 + 1, par4) > 2)
 			{
-				par1World.setBlock(par2, par3, par4, BloodCraftMod.DesolatedDirt);
+				par1World.setBlock(par2, par3, par4, Main.DesolatedDirt);
 			}
 			else if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
 			{
@@ -71,7 +71,7 @@ public class BlockDesolatedGrass extends Block {
 
 					if (par1World.getBlock(i1, j1, k1) == Blocks.dirt && par1World.getBlockMetadata(i1, j1, k1) == 0 && par1World.getBlockLightValue(i1, j1 + 1, k1) >= 4 && par1World.getBlockLightOpacity(i1, j1 + 1, k1) <= 2)
 					{
-						par1World.setBlock(i1, j1, k1, BloodCraftMod.DesolatedGrass);
+						par1World.setBlock(i1, j1, k1, Main.DesolatedGrass);
 					}
 				}
 			}

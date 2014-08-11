@@ -1,6 +1,6 @@
 package com.bloodguy.bloodcraft.item;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class ItemDropHeart extends Item {
 	public ItemDropHeart() {
 		super();
-		setCreativeTab(BloodCraftMod.Bl00DCraft);
+		setCreativeTab(Main.Bl00DCraft);
 	     setUnlocalizedName("dropHeart");
 	     setTextureName("Bl00DCraft:dropHeart");
 	}

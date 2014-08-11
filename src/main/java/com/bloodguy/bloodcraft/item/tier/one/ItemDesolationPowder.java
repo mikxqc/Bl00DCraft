@@ -1,25 +1,19 @@
-package com.bloodguy.bloodcraft.item;
+package com.bloodguy.bloodcraft.item.tier.one;
 
 import com.bloodguy.bloodcraft.Main;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 
-public class ItemTrilliumIngot extends Item
-{
-	public ItemTrilliumIngot()
+public class ItemDesolationPowder extends Item {
+	public ItemDesolationPowder()
 	{
 		super();
 	     setCreativeTab(Main.Bl00DCraft);
-	     setUnlocalizedName("trilliumIngot");
-	     setTextureName("Bl00DCraft:trilliumIngot");
+	     setUnlocalizedName("DesolationPowder");
+	     setTextureName("Bl00DCraft:DesolationPowder");
 	}
 	
 	@Override

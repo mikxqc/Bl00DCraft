@@ -25,25 +25,25 @@ public class Drop_Event {
 	           {
 	    		 if (rand < 0.50d)
 	                {
-	    			 	event.entityLiving.dropItem(BloodCraftMod.dropHeart, 1);
+	    			 	event.entityLiving.dropItem(Main.dropHeart, 1);
 	                }
 	           }
 	    	 if (event.entityLiving instanceof EntityCreeper)
 	           {
 	    		 if (rand < 0.50d)
 	                {
-	    			 	event.entityLiving.dropItem(BloodCraftMod.dropHeart, 1);
+	    			 	event.entityLiving.dropItem(Main.dropHeart, 1);
 	                }
 	           }
 	    	 if (event.entityLiving instanceof EntityZombie)
 	           {
 	    		 if (rand < 0.45d)
 	                {
-	    			 	event.entityLiving.dropItem(BloodCraftMod.dropHeart, 1);
+	    			 	event.entityLiving.dropItem(Main.dropHeart, 1);
 	                }
 	    		 if (rand < 0.5d)
 	                {
-	    			 	event.entityLiving.dropItem(BloodCraftMod.cropCornSeeds, 1);
+	    			 	event.entityLiving.dropItem(Main.cropCornSeeds, 1);
 	                }
 	           }
 	    	 

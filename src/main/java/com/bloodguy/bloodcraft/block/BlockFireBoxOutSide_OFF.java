@@ -2,7 +2,7 @@ package com.bloodguy.bloodcraft.block;
 
 import java.util.Random;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 import com.bloodguy.bloodcraft.tileentity.TileEntityFireBoxOutSide;
 import com.bloodguy.bloodcraft.tileentity.TileEntityTombStone;
 
@@ -61,14 +61,14 @@ public class BlockFireBoxOutSide_OFF extends BlockContainer{
     	if(p5EP.inventory.getCurrentItem() != null) {
        if(p5EP.inventory.getCurrentItem().getItem() == Items.flint_and_steel && p5EP.inventory.getCurrentItem().getItem() != null){
           //par1World.setBlockWithNotify(par2, par3, par4, 4);
-    	   par1World.setBlock(par2,par3,par4,BloodCraftMod.FireBoxOutSide_ON);
+    	   par1World.setBlock(par2,par3,par4,Main.FireBoxOutSide_ON);
           }
     	}
     }
     
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_, EntityPlayer entityPlayer)
     {
-    		return Item.getItemFromBlock(BloodCraftMod.FireBoxOutSide_OFF);    
+    		return Item.getItemFromBlock(Main.FireBoxOutSide_OFF);    
     }
 
 }

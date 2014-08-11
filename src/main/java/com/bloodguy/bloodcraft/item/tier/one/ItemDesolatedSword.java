@@ -1,6 +1,6 @@
-package com.bloodguy.bloodcraft.item;
+package com.bloodguy.bloodcraft.item.tier.one;
 
-import com.bloodguy.bloodcraft.BloodCraftMod;
+import com.bloodguy.bloodcraft.Main;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ public class ItemDesolatedSword extends ItemSword {
 
 	public ItemDesolatedSword(ToolMaterial p_i45356_1_) {
 		super(p_i45356_1_);
-		setCreativeTab(BloodCraftMod.Bl00DCraft);
+		setCreativeTab(Main.Bl00DCraft);
 	    setUnlocalizedName("DesolatedSword");
 	    setTextureName("Bl00DCraft:DesolatedSword");
 	}
